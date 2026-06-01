@@ -1,0 +1,18 @@
+The "WorkshopContent" folder contains your addons.
+
+This folder should contain folders with addons, 
+which should contain the your addon files (As you can see in the example). 
+
+Click on the "Create item" button to create 
+the new item to upload. (The window above is the name for creating the item.)
+
+Updating:
+If you want to update an item, then the updated material must have significant changes, 
+otherwise the update will not be uploaded to the workshop. 
+
+NO FILES IN THE ROOT OF THE SCRIPT EXCEPT THE SCRIPT (GSÑ) 
+
+Errors fixing:
+- If your image freezes (buttons do not work), 
+then try running the game through the 
+integrated video card, if there is one. 

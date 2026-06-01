@@ -1,0 +1,273 @@
+// Русская локализация
+#define LANGUAGE_NAME "RUSSIAN"
+#define SAVE_FILE "languages\sources\save.txt"
+global ShouldUseLanguage = 0
+
+SetScriptLanguage(getscriptpath()+"\sources\rus.png")
+InitLanguage()
+
+def InitLanguage()
+	ShouldUseLanguage = 0
+	local f = 0
+
+	if WorkshopFileType(SAVE_FILE) != 1 then
+		if LANGUAGE_NAME == "ENGLISH" then
+			f = WriteWorkshopFile(SAVE_FILE)
+			WriteLine(f, LANGUAGE_NAME)
+			CloseFile(f)
+			ShouldUseLanguage = 1
+			launchlang()
+		end
+		return
+	end
+	
+	f = ReadWorkshopFile(SAVE_FILE)
+	local strlang = ""
+	strlang = ReadLine(f)
+	if strlang == LANGUAGE_NAME then 
+		ShouldUseLanguage = 1
+		launchlang()
+	end
+	CloseFile(f)
+end
+
+def launchlang()
+	StopAllRedirectText()
+	FreeFonts(True)
+	LoadFonts(True)
+	
+	RedirectText("Graphics:", "Графика:")
+	RedirectText("Media:", "Медиа:")
+	RedirectText("LAUNCH", "СТАРТ")
+	RedirectText("EXIT", "ВЫХОД")
+	RedirectText("Current Resolution: ", "Текущее разрешение: ")
+	RedirectText("Resolution:", "Разрешение:")
+	RedirectText("Fullscreen", "Полный экран")
+	RedirectText("Borderless", "Безрамочный")
+	RedirectText("windowed mode", "режим")
+	RedirectText("16 Bit", "16 бит")
+	RedirectText("Use launcher", "Использовать лаунчер")
+	RedirectText("LOADING", "ЗАГРУЗКА")
+	RedirectText("Load", "Загрузить")
+	RedirectText("Delete", "Удалить")
+	RedirectText("BACK", "НАЗАД")
+	
+	RedirectText("MULTIPLAYER", "МУЛЬТИПЛЕЕР")
+	RedirectText("NEW GAME", "НАЧАТЬ ИГРУ")
+	RedirectText("LOAD GAME", "ЗАГРУЗИТЬ")
+	RedirectText("OPTIONS", "НАСТРОЙКИ")
+	RedirectText("QUIT", "ВЫЙТИ")
+	RedirectText("Quit", "Выйти")
+	RedirectText("PRESS ANY KEY TO CONTINUE", "НАЖМИТЕ ЛЮБУЮ КЛАВИШУ ЧТОБЫ ПРОДОЛЖИТЬ")
+end
+
+def lang(FromPublic)
+	StopAllRedirectText()
+	if FromPublic == 0 then 
+        FreeFonts(True)
+        LoadFonts(False)
+	end
+    RedirectText("Borderless mode", "Безрамочный режим")
+	RedirectText("Bullet lines", "Видимость пуль")
+    RedirectText("Quit to Menu", "Выйти в меню")
+    RedirectText("Load Game", "Загрузка игры")
+    
+    RedirectText("Follow instructions from SCP-049 and kill everyone.", "Следуйте инструкциям SCP-049 и убейте всех")
+    RedirectText("Your task is to evacuate scientists.", "Ваша задача эвакуировать ученых.")
+    RedirectText("Your task is to evacuate the Class D", "Ваша задача эвакуировать Класс Д")
+    RedirectText("Escape from the facility", "Выберетесь из комплекса")
+    RedirectText("Kill everyone in facility.", "Убейте всех в комплексе")
+    RedirectText("You can kill anyone or teaming with somebody. You also can take items", "Вы можете убивать или сотрудничать с кем угодно. Вы также можете брать предметы")
+    RedirectText("Cure everyone in facility.", "Заразите всех в комплексе.")
+    
+    RedirectText("Use LMB or RMB to switch between players", "Нажимайте ЛКМ или ПКМ чтобы переключения")
+    RedirectText("Press R to switch camera mode", "Жми R для переключения камеры")
+    
+    RedirectText("Spectator", "Наблюдатель")
+    RedirectText("Class D", "Класс Д")
+    RedirectText("Guard", "Охранник")
+    RedirectText("Scientist", "Учёный")
+    RedirectText("Chaos Soldier", "Повстанец Хаоса")
+    RedirectText("Janitor", "Уборщик")
+    
+    RedirectText("Downloading files", "Загружаем файлы")
+    
+	RedirectText("Media:", "Медиа:")
+	RedirectText("LAUNCH", "СТАРТ")
+	RedirectText("EXIT", "ВЫХОД")
+	RedirectText("Current Resolution: ", "Текущее разрешение: ")
+	RedirectText("Resolution:", "Разрешение:")
+	RedirectText("Fullscreen", "Полный экран")
+	RedirectText("Borderless", "Безрамочный")
+	RedirectText("windowed mode", "режим")
+	RedirectText("16 Bit", "16 бит")
+	RedirectText("Use launcher", "Использовать лаунчер")
+	RedirectText("LOADING", "ЗАГРУЗКА")
+	RedirectText("Load", "Загрузить")
+	RedirectText("Delete", "Удалить")
+	RedirectText("BACK", "НАЗАД")
+	
+	RedirectText("MULTIPLAYER", "МУЛЬТИПЛЕЕР")
+	RedirectText("NEW GAME", "НАЧАТЬ ИГРУ")
+	RedirectText("LOAD GAME", "ЗАГРУЗИТЬ")
+	RedirectText("OPTIONS", "НАСТРОЙКИ")
+	RedirectText("QUIT", "ВЫЙТИ")
+	RedirectText("Quit", "Выйти")
+	RedirectText("PRESS ANY KEY TO CONTINUE", "НАЖМИТЕ ЛЮБУЮ КЛАВИШУ ЧТОБЫ ПРОДОЛЖИТЬ")
+	//
+	RedirectText("Move Backward", "Назад")
+	//
+	RedirectText("Back", "Назад")
+	RedirectText("Page", "Страница")
+	RedirectText("OFFICIAL", "ОФИЦИАЛ.")
+	RedirectText("HISTORY", "ИСТОРИЯ")
+	RedirectText("FAVORITES", "ИЗБРАННОЕ")
+	RedirectText("LOCAL", "ЛОКАЛЬНЫЕ")
+	RedirectText("Servers", "Сервера")
+	RedirectText("Players", "Игроки")
+    RedirectText("Map", "Карта")
+	RedirectText("Map seed:", "Сид генерац.")
+	RedirectText("Ping", "Пинг")
+	RedirectText("JOIN SERVER", "ПОДКЛЮЧИТЬСЯ")
+	RedirectText("REFRESH SERVER", "ПЕРЕЗАГРУЗИТЬ")
+	RedirectText("DIRECT CONNECT", "ПРЯМОЕ ПОДКЛ.")
+    RedirectText("RENT A SERVER", "АРЕНД. СЕРВЕР")
+	RedirectText("SETTINGS", "НАСТРОЙКИ")
+	RedirectText("CREATE LOBBY", "СОЗДАТЬ ЛОББИ")
+	RedirectText("DELETE SERVER", "УДАЛИТЬ СЕРВЕР")
+	RedirectText("ADD SERVER", "ДОБАВИТЬ СЕРВЕР")
+	RedirectText("Name:", "Имя:")
+	RedirectText("Name change not available", "Смена имени недоступна")
+	RedirectText("Enable intro sequence:", "Включить вступление:")
+	RedirectText("Difficulty:", "Сложность:")
+	RedirectText("Safe", "Безопасный")
+	RedirectText("Euclid", "Евклид")
+	RedirectText("Keter", "Кетер")
+	RedirectText("Custom", "Свой")
+	RedirectText("RESTART VOICE", "РЕСТАРТ")
+	RedirectText("START GAME", "НАЧАТЬ ИГРУ")
+	RedirectText("SERVER IS RESTARTING", "СЕРВЕР ПЕРЕЗАПУСКАЕТСЯ")
+	RedirectText("START", "НАЧАТЬ")
+	RedirectText("See players HUD", "Видеть ХУД игроков")
+	RedirectText("See players HP Bar", "Видеть ХП игроков")
+	RedirectText("Download speed (bytes/ms)", "Скорость загрузки (байт/мс)")
+	RedirectText("Voice chat", "Голосовой чат")
+	RedirectText("Players volume:", "Громкость игроков:")
+	RedirectText("Reload server list", "Загрузить список серверов")
+	RedirectText("VOICE", "ГОЛОС")
+	RedirectText("Current input", "Текущий вход")
+	RedirectText("Connect", "Войти")
+	RedirectText("Close", "Закрыть")
+	RedirectText("Version", "Версия")
+	RedirectText("Web URL", "Ссылка")
+	RedirectText("No Cheat", "Без читов")
+	RedirectText("Max players", "Макс. игроков")
+	RedirectText("Jump mode", "Прыжки")
+	RedirectText("Gravity", "Гравитация")
+	RedirectText("Keep inventory", "Сохранять инвент.")
+	RedirectText("CREATE", "СОЗДАТЬ")
+	RedirectText("Refresh", "Перезагр.")
+	RedirectText("Server:", "Сервер:")
+	RedirectText("LOBBY", "Лобби")
+	RedirectText("DISCONNECT", "ВЫЙТИ")
+	RedirectText("Not Ready", "Не готов")
+	RedirectText("READY", "ГОТОВ")
+	RedirectText("Ready", "Готов")
+	RedirectText("Nickname", "Имя")
+	RedirectText("CHECK MICROPHONE", "ПРОВЕРКА МИКРОФОНА")
+	RedirectText("Resume", "Вернуться")
+	RedirectText("Achievements", "Достижения")
+	RedirectText("Options", "Настройки")
+	RedirectText("Suicide?", "Суицид?")
+	RedirectText("Suicide", "Суицид")
+	RedirectText("PAUSED", "На паузе")
+	RedirectText("Player volume:", "Громкость игрока:")
+	RedirectText("Friends can join", "Доступ для друзей")
+	RedirectText("Private room", "Приват")
+	RedirectText("RECEIVING DATA", "ПОЛУЧАЕМ ДАННЫЕ")
+	RedirectText("MAIN MENU", "ГЛАВНОЕ МЕНЮ")
+	
+	RedirectText("ACHIEVEMENTS", "ДОСТИЖЕНИЯ")
+	RedirectText("OPTIONS", "НАСТРОЙКИ")
+	RedirectText("QUIT?", "ВЫЙТИ?")
+	RedirectText("YOU DIED", "ВЫ МЕРТВЫ")
+
+	RedirectText("GRAPHICS","ГРАФИКА")
+	RedirectText("Enable bump mapping:", "Включить отображение рельефа:")
+	RedirectText("VSync:", "Вертикальная синхронизация")
+	RedirectText("Anti-aliasing:", "Сглаживание:")
+	RedirectText("Enable room lights:", "Включить свет в комнатах:")
+	RedirectText("Screen gamma", "Яркость")
+	RedirectText("Particle amount:", "Количество частиц:")
+	RedirectText("Texture LOD Bias:","Разрешение текстур:")
+	RedirectText("Cameras quality:","Качество камер")
+	RedirectText("Disable gamma update:","Выключить обновление яркости:")
+	RedirectText("Save textures in the VRAM","Текстуры в видеопамяти:")
+	RedirectText("Cameras update interval:", "Частота обновления камер:")
+
+	RedirectText("AUDIO","ЗВУК")
+	RedirectText("Music volume:","Громкость музыки:")
+	RedirectText("Sound volume:","Громкость звуков:")
+
+	RedirectText("Sound auto-release:","Авто очистка звуков:")
+	RedirectText("Enable user tracks:","Включить пользов. треки:")
+	RedirectText("User track mode","Режим треков пользователя")
+	RedirectText("Scan for User Tracks","Сканирование на треки")
+	RedirectText("CONTROLS","УПРАВЛЕНИЕ")
+	RedirectText("Mouse sensitivity:","Чувствительность мыши:")
+	RedirectText("Invert mouse Y-axis:","Инверсия мыши")
+	RedirectText("Mouse smoothing:","Сглаживание мыши")
+	RedirectText("Control configuration:","Настройки управления:")
+	RedirectText("Move Forward", "Вперед")
+	RedirectText("Strafe Left", "Влево")
+	RedirectText("Strafe Right", "Вправо")
+	RedirectText("Quick Save", "Сохранение")
+	RedirectText("Chat", "Чат")
+	RedirectText("Jump", "Прыжок")
+	RedirectText("Manual Blink", "Моргание")
+	RedirectText("Sprint", "Бег")
+	RedirectText("Open/Close Inventory", "Инвентарь")
+	RedirectText("Crouch", "Присесть")
+	RedirectText("Open/Close Console", "Консоль")
+	RedirectText("Voice", "Голосовой чат")
+	RedirectText("(Muted)", "(Заглушен)")
+	RedirectText("Server list is clear", "Список серверов пуст")
+	RedirectText("Local servers are searched only on", "Локальные сервера ищутся только под")
+	RedirectText("port 50021", "портом 50021")
+	
+	RedirectText("ADVANCED", "ОСТАЛЬНОЕ")
+	RedirectText("Show HUD", "Показывать ХУД")
+	RedirectText("Enable console", "Включить консоль")
+	RedirectText("MULTIPLAYER", "KDSJSJSJKSJKSK")
+	RedirectText("Open console on error", "Открывать консоль при ошибке")
+	RedirectText("Achievement popups", "Всплывающее окно ачивок")
+	RedirectText("Show FPS", "Показывать ФПС")
+	RedirectText("Framelimit:", "Ограничение ФПС:")
+	RedirectText("Antialiased text:", "Сглаженный текст:")
+	
+	RedirectText("'E' button interaction", "Взаимодействие на 'Е'")
+	RedirectText("COMMUNITY", "СООБЩ.")
+	
+	RedirectText("Spawn", "Возрожд.")
+    
+    RedirectText("Particles:", "Дым:")
+	RedirectText("Decals:", "Материалы:")
+    
+	InitLoadingScreens(getscriptpath()+"\sources\rusloadingscreens.ini")
+	InitInfoClues(getscriptpath()+"\sources\rusclues.ini")
+end
+
+def OnClickWorkshopLanguage()
+	f = WriteWorkshopFile(SAVE_FILE)
+	WriteLine(f, LANGUAGE_NAME)
+	CloseFile(f)
+	lang(False)
+end
+
+public def OnLoadingFonts()
+
+end
+
+public def OnLaunchGame()
+	if ShouldUseLanguage then lang(True)
+end

@@ -1,0 +1,31 @@
+Graphics3D 800,600,0,2
+camera = CreateCamera()
+CameraClsColor camera,48,48,64
+
+mesh = LoadMesh("map/gateawall1.b3d") ;also supports .3ds, .x
+
+If(mesh=0) Then RuntimeError("could not load mesh file")
+
+
+MoveEntity camera,0,0,-10
+Repeat
+Cls
+
+;play around with these commands.....
+MoveEntity camera,0,0,-0.05
+TurnEntity mesh,0.1,0.05,0.100
+PointEntity camera,mesh
+
+
+
+RenderWorld
+Text 0,0,"Tris:"+TrisRendered() 
+Flip
+
+Until KeyHit(1)
+
+FreeEntity mesh
+FreeEntity camera
+EndGraphics
+
+End
